@@ -31,8 +31,41 @@
       font-size: 16px;
       color: #4b5563;
     }
+    .details {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid #d8dde4;
+    }
+    h2 {
+      margin: 0 0 20px;
+      font-size: 24px;
+    }
+    dl {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 12px 24px;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    dt {
+      color: #4b5563;
+      font-weight: 700;
+    }
+    dd {
+      margin: 0;
+    }
     a {
       color: #1d4ed8;
+    }
+    @media (max-width: 640px) {
+      dl {
+        grid-template-columns: 1fr;
+        gap: 4px 0;
+      }
+      dd {
+        margin-bottom: 12px;
+      }
     }
   </style>
 </head>
@@ -46,6 +79,22 @@
       <p>Contact: <a href="mailto:admin@andiz.shop">admin@andiz.shop</a></p>
       <p>Location: South Korea</p>
     </div>
+
+    <section class="details" aria-labelledby="organization-details">
+      <h2 id="organization-details">Organization Details</h2>
+      <dl>
+        <dt>Legal entity name</dt>
+        <dd>ANDIZ</dd>
+        <dt>Business name</dt>
+        <dd>ANDIZ</dd>
+        <dt>Business type</dt>
+        <dd>Software and digital product business</dd>
+        <dt>Headquarters</dt>
+        <dd>South Korea</dd>
+        <dt>Contact</dt>
+        <dd><a href="mailto:admin@andiz.shop">admin@andiz.shop</a></dd>
+      </dl>
+    </section>
   </main>
 </body>
 </html>
