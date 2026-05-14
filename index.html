@@ -193,6 +193,31 @@
       font-weight: 800;
     }
 
+    .button-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      transition: transform 160ms ease;
+    }
+
+    .button:hover .button-icon {
+      transform: translateX(2px);
+    }
+
+    .button-icon svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
     .button.primary {
       color: var(--paper);
       background: var(--ink-soft);
@@ -205,9 +230,14 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .arrow {
-      font-size: 18px;
-      line-height: 1;
+    .button.primary .button-icon {
+      color: var(--ink-soft);
+      background: var(--paper);
+    }
+
+    .button.secondary .button-icon {
+      color: var(--paper);
+      background: var(--ink-soft);
     }
 
     .visual-card {
@@ -791,6 +821,11 @@
         color: var(--ink);
       }
 
+      .button.primary .button-icon {
+        color: var(--paper);
+        background: var(--ink);
+      }
+
       .button.secondary {
         width: 100%;
         background: var(--chip);
@@ -890,8 +925,24 @@
           <h1 id="hero-title">ANDIZ builds practical mobile apps, web services, and digital tools.</h1>
           <p>ANDIZ is a South Korea based software and digital product business that plans, develops, and operates mobile applications, web services, and digital tools for everyday workflows.</p>
           <div class="actions">
-            <a class="button primary" href="mailto:admin@andiz.shop">Contact ANDIZ <span class="arrow" aria-hidden="true">&rarr;</span></a>
-            <a class="button secondary" href="#organization">View Organization Details <span aria-hidden="true">&#8599;</span></a>
+            <a class="button primary" href="mailto:admin@andiz.shop">
+              <span>Contact ANDIZ</span>
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 12h13"></path>
+                  <path d="m13 6 6 6-6 6"></path>
+                </svg>
+              </span>
+            </a>
+            <a class="button secondary" href="#organization">
+              <span>View Organization Details</span>
+              <span class="button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M7 17 17 7"></path>
+                  <path d="M9 7h8v8"></path>
+                </svg>
+              </span>
+            </a>
           </div>
         </div>
 
