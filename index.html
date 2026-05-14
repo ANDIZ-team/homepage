@@ -3,323 +3,1124 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ANDIZ is a South Korea based software and digital product business building mobile apps, web services, and digital tools.">
-  <title>ANDIZ | Software and Digital Products</title>
+  <meta name="description" content="ANDIZ is a South Korea based software and digital product business that plans, develops, and operates mobile apps, web services, and digital tools.">
+  <title>ANDIZ | Official Organization Website</title>
   <style>
     :root {
       color-scheme: light;
-      --bg: #f4f6f8;
-      --surface: #ffffff;
-      --ink: #1f2933;
-      --muted: #52606d;
-      --line: #d9e2ec;
-      --accent: #0f766e;
-      --accent-dark: #115e59;
+      --ink: #171717;
+      --ink-soft: #24272b;
+      --muted: #666a70;
+      --paper: #ffffff;
+      --mist: #f6f7f8;
+      --soft: #f4f5f6;
+      --panel: #f1f2f4;
+      --line: #e6e8eb;
+      --chip: #e8eaed;
+      --shadow: 0 14px 42px rgba(23, 23, 23, 0.08);
+      --shadow-soft: 0 6px 18px rgba(23, 23, 23, 0.05);
+      --radius: 18px;
+      --radius-lg: 24px;
+      --max: 1232px;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
       color: var(--ink);
-      background: var(--bg);
+      background: var(--mist);
+      font-family: Inter, Arial, Helvetica, sans-serif;
     }
 
     a {
-      color: var(--accent-dark);
+      color: inherit;
+      text-decoration: none;
     }
 
-    header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--line);
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.58;
+    }
+
+    .mono {
+      font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      letter-spacing: 0;
+      text-transform: uppercase;
     }
 
     .wrap {
-      width: min(1040px, calc(100% - 48px));
+      width: min(var(--max), calc(100% - 48px));
       margin: 0 auto;
+    }
+
+    .site-header {
+      padding: 28px 0;
+      background: var(--mist);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      min-height: 72px;
+      min-height: 68px;
+      padding: 0 26px;
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
     }
 
     .brand {
-      font-size: 22px;
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 800;
       letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: var(--ink-soft);
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      font-size: 14px;
-    }
-
-    .nav-links a {
+      align-items: center;
+      gap: 26px;
       color: var(--muted);
-      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    main {
-      padding-bottom: 72px;
+    .nav-links a:last-child {
+      color: var(--ink-soft);
+      font-weight: 800;
     }
 
     .hero {
-      padding: 72px 0 56px;
-      background: var(--surface);
-      border-bottom: 1px solid var(--line);
+      padding: 0 0 72px;
+      background: var(--mist);
     }
 
-    .hero-grid {
+    .hero-panel {
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
-      gap: 48px;
-      align-items: start;
+      grid-template-columns: minmax(0, 1fr) 488px;
+      gap: 34px;
+      min-height: 560px;
+      padding: 38px 42px;
+      background: var(--chip);
+      border-radius: var(--radius-lg);
     }
 
-    .eyebrow {
-      margin: 0 0 16px;
-      color: var(--accent-dark);
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+      min-width: 0;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 9px 14px;
+      color: var(--paper);
+      background: var(--ink);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .hero-label::before {
+      content: "";
+      width: 22px;
+      height: 3px;
+      border-radius: 999px;
+      background: #d9dde2;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: Geist, Inter, Arial, Helvetica, sans-serif;
       letter-spacing: 0;
     }
 
     h1 {
-      margin: 0;
-      max-width: 760px;
-      font-size: clamp(36px, 5vw, 58px);
-      line-height: 1.05;
-      letter-spacing: 0;
+      max-width: 690px;
+      font-size: clamp(40px, 5vw, 55px);
+      line-height: 1.07;
+      font-weight: 800;
     }
 
-    .lead {
-      margin: 24px 0 0;
-      max-width: 720px;
-      color: var(--muted);
-      font-size: 20px;
-      line-height: 1.7;
-    }
-
-    .notice {
-      padding: 24px;
-      border: 1px solid var(--line);
-      background: #f8fafc;
-      border-radius: 8px;
-    }
-
-    .notice h2 {
-      margin-top: 0;
-    }
-
-    section {
-      padding: 56px 0 0;
-    }
-
-    h2 {
-      margin: 0 0 18px;
-      font-size: 26px;
-      line-height: 1.25;
-      letter-spacing: 0;
-    }
-
-    h3 {
-      margin: 0 0 10px;
+    .hero-copy p {
+      max-width: 690px;
       font-size: 18px;
-      letter-spacing: 0;
+      line-height: 1.52;
     }
 
-    p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.7;
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
-    .grid {
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .button.primary {
+      color: var(--paper);
+      background: var(--ink-soft);
+      box-shadow: 0 10px 20px rgba(36, 39, 43, 0.18);
+    }
+
+    .button.secondary {
+      color: var(--ink);
+      background: var(--paper);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .arrow {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .visual-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      padding: 18px;
+      background: var(--mist);
+      border-radius: 28px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .profile {
+      width: 100%;
+      overflow: hidden;
+      background: var(--paper);
+      border-radius: 22px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    .profile-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .profile-grid {
+      display: grid;
+      gap: 14px;
+      padding: 8px 16px 18px;
+    }
+
+    .profile-bar {
+      height: 8px;
+      border-radius: 999px;
+      background: var(--ink-soft);
+    }
+
+    .profile-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .profile-tile {
+      min-height: 84px;
+      padding: 0 18px;
+      display: flex;
+      align-items: center;
+      color: var(--ink);
+      background: var(--panel);
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .profile-tile.dark {
+      color: var(--paper);
+      background: var(--ink);
+    }
+
+    .profile-tile.mid {
+      background: var(--chip);
+    }
+
+    .section {
+      padding: 74px 0 82px;
+      background: var(--mist);
+    }
+
+    .section.alt {
+      background: var(--panel);
+    }
+
+    .section.soft {
+      background: var(--soft);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 470px minmax(0, 1fr);
+      gap: 34px;
+    }
+
+    .intro-card,
+    .service-card,
+    .work-card,
+    .privacy-card,
+    .org-card {
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .intro-card {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      padding: 44px 46px;
+      background: var(--soft);
+    }
+
+    .kicker {
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 8px 12px;
+      color: var(--ink-soft);
+      background: var(--chip);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .chip::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--ink-soft);
+    }
+
+    .intro-card h2 {
+      font-size: 32px;
+      line-height: 1.12;
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .scope-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 222px;
+      padding: 28px;
+      background: var(--paper);
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .scope-card:nth-child(2) {
+      background: var(--soft);
+    }
+
+    .scope-card:nth-child(3) {
+      background: var(--chip);
+    }
+
+    .scope-card h3,
+    .work-card h3,
+    .privacy-card h3 {
+      font-size: 22px;
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .num-chip {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 7px 10px;
+      color: var(--ink-soft);
+      background: var(--soft);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .scope-card:nth-child(2) .num-chip,
+    .scope-card:nth-child(4) .num-chip {
+      background: var(--chip);
+    }
+
+    .scope-card:nth-child(3) .num-chip {
+      background: var(--paper);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      display: grid;
+      gap: 12px;
+      max-width: 760px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(32px, 4vw, 43px);
+      line-height: 1.08;
+      font-weight: 800;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 10px 14px;
+      color: var(--ink-soft);
+      background: var(--paper);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .meta-chip::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--ink-soft);
+    }
+
+    .services-grid,
+    .work-grid,
+    .privacy-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 22px;
     }
 
-    .card {
-      min-height: 180px;
-      padding: 24px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      min-height: 292px;
+      padding: 30px 28px;
+      background: var(--paper);
     }
 
-    .info {
+    .service-card:nth-child(2) {
+      background: var(--soft);
+    }
+
+    .service-card:nth-child(3) {
+      background: var(--mist);
+    }
+
+    .service-card h3 {
+      font-size: 25px;
+      line-height: 1.12;
+      font-weight: 800;
+    }
+
+    .product-head {
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 14px 24px;
-      margin: 0;
-      padding: 24px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      font-size: 16px;
-      line-height: 1.6;
+      grid-template-columns: minmax(0, 760px) 382px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      margin-bottom: 22px;
+      padding-bottom: 26px;
     }
 
-    dt {
-      color: var(--ink);
-      font-weight: 700;
+    .tag {
+      display: inline-flex;
+      width: fit-content;
+      padding: 9px 16px;
+      color: var(--ink-soft);
+      background: var(--paper);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: var(--shadow-soft);
     }
 
-    dd {
-      margin: 0;
-      color: var(--muted);
+    .product-copy {
+      display: grid;
+      gap: 16px;
     }
 
-    footer {
-      padding: 32px 0;
-      color: var(--muted);
-      background: var(--surface);
-      border-top: 1px solid var(--line);
+    .product-copy h2 {
+      font-size: clamp(34px, 4vw, 43px);
+      line-height: 1.06;
+      font-weight: 800;
+    }
+
+    .contact-panel {
+      display: grid;
+      gap: 14px;
+      padding: 30px;
+      color: var(--paper);
+      background: var(--ink-soft);
+      border-radius: 16px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 8px 13px;
+      color: var(--ink-soft);
+      background: var(--soft);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--ink-soft);
+    }
+
+    .contact-panel p {
+      color: var(--panel);
       font-size: 14px;
+      line-height: 1.52;
     }
 
-    @media (max-width: 780px) {
+    .contact-label {
+      color: var(--chip);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .contact-email {
+      color: var(--paper);
+      font-family: Geist, Inter, Arial, Helvetica, sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1.1;
+      word-break: break-word;
+    }
+
+    .work-card {
+      display: flex;
+      min-height: 244px;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 30px;
+      background: var(--paper);
+    }
+
+    .work-label {
+      color: var(--ink-soft);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .privacy-head {
+      display: grid;
+      grid-template-columns: minmax(0, 680px) 360px;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+
+    .privacy-copy {
+      display: grid;
+      gap: 13px;
+    }
+
+    .privacy-copy h2 {
+      font-size: clamp(32px, 4vw, 40px);
+      line-height: 1.08;
+    }
+
+    .privacy-card {
+      display: grid;
+      gap: 14px;
+      padding: 26px;
+      background: var(--soft);
+    }
+
+    .org-card {
+      display: grid;
+      grid-template-columns: 350px minmax(0, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+      padding: 30px;
+      background: var(--paper);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .org-intro {
+      display: grid;
+      align-content: start;
+      gap: 14px;
+      padding: 12px;
+    }
+
+    .org-intro h2 {
+      font-size: 30px;
+      line-height: 1.1;
+    }
+
+    .org-table {
+      display: grid;
+      gap: 12px;
+    }
+
+    .org-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .org-row.full {
+      grid-template-columns: 1fr;
+    }
+
+    .org-cell {
+      display: grid;
+      gap: 5px;
+      padding: 18px;
+      background: var(--soft);
+      border-radius: 10px;
+    }
+
+    .org-cell dt {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .org-cell dd {
+      margin: 0;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .org-cell strong {
+      font-family: Geist, Inter, Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .footer {
+      background: var(--ink);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+      padding: 38px 0;
+      color: var(--paper);
+    }
+
+    .footer-brand {
+      display: grid;
+      gap: 8px;
+      width: min(520px, 100%);
+    }
+
+    .footer-brand strong {
+      font-family: Geist, Inter, Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .footer p,
+    .footer a {
+      color: #e8eaed;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: grid;
+      justify-items: end;
+      gap: 12px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 980px) {
+      .hero-panel,
+      .about-grid,
+      .product-head,
+      .privacy-head,
+      .org-card {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-card,
+      .contact-panel,
+      .org-intro {
+        width: 100%;
+      }
+
+      .services-grid,
+      .work-grid,
+      .privacy-grid,
+      .scope-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
       .wrap {
-        width: min(100% - 32px, 1040px);
+        width: min(100% - 32px, var(--max));
+      }
+
+      .site-header {
+        padding: 16px 0;
       }
 
       .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 20px 0;
-      }
-
-      .hero-grid,
-      .grid {
-        grid-template-columns: 1fr;
+        padding: 0 20px;
       }
 
       .hero {
-        padding: 48px 0 40px;
+        padding-bottom: 22px;
       }
 
-      .info {
+      .hero-panel {
+        min-height: auto;
+        padding: 34px 22px 28px;
+        color: var(--paper);
+        background: var(--ink);
+        border-radius: var(--radius);
+      }
+
+      .hero-label {
+        padding: 0;
+        color: var(--chip);
+        background: transparent;
+      }
+
+      .hero-label::before {
+        display: none;
+      }
+
+      h1 {
+        color: var(--paper);
+        font-size: 34px;
+      }
+
+      .hero-copy p {
+        color: var(--panel);
+        font-size: 15px;
+      }
+
+      .button.primary {
+        width: 100%;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      .button.secondary {
+        width: 100%;
+        background: var(--chip);
+      }
+
+      .visual-card {
+        display: none;
+      }
+
+      .section {
+        padding: 22px 0;
+      }
+
+      .intro-card,
+      .service-card,
+      .work-card,
+      .privacy-card {
+        padding: 24px 22px;
+      }
+
+      .intro-card h2,
+      .section-title h2,
+      .product-copy h2,
+      .privacy-copy h2 {
+        font-size: 30px;
+      }
+
+      .contact-panel {
+        padding: 22px;
+      }
+
+      .contact-email {
+        font-size: 22px;
+      }
+
+      .org-card {
+        padding: 12px;
+      }
+
+      .org-row {
         grid-template-columns: 1fr;
-        gap: 6px;
       }
 
-      dd {
-        margin-bottom: 12px;
+      .footer-inner,
+      .footer-links {
+        align-items: start;
+        justify-items: start;
+        flex-direction: column;
+      }
+
+      .footer-nav {
+        flex-wrap: wrap;
+        gap: 14px;
       }
     }
   </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ANDIZ",
+      "url": "https://andiz.shop/",
+      "email": "admin@andiz.shop",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "KR"
+      },
+      "description": "ANDIZ is a South Korea based software and digital product business that plans, develops, and operates mobile apps, web services, and digital tools."
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <div class="wrap nav" aria-label="Main navigation">
-      <div class="brand">ANDIZ</div>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#support">Support</a>
-        <a href="#privacy">Privacy</a>
+  <header class="site-header">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="ANDIZ home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>ANDIZ</span>
+        </a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#products">Products</a>
+          <a href="#support">Support</a>
+          <a href="#privacy">Privacy</a>
+          <a href="mailto:admin@andiz.shop">Contact</a>
+        </div>
       </nav>
     </div>
   </header>
 
-  <main>
-    <div class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow">Software and digital product business</p>
-          <h1>ANDIZ builds practical mobile apps, web services, and digital tools.</h1>
-          <p class="lead">ANDIZ is based in South Korea and develops software products for everyday digital workflows. This website is the official public website for the ANDIZ organization.</p>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-panel">
+        <div class="hero-copy">
+          <div class="hero-label mono">ANDIZ Official Organization</div>
+          <h1 id="hero-title">ANDIZ builds practical mobile apps, web services, and digital tools.</h1>
+          <p>ANDIZ is a South Korea based software and digital product business that plans, develops, and operates mobile applications, web services, and digital tools for everyday workflows.</p>
+          <div class="actions">
+            <a class="button primary" href="mailto:admin@andiz.shop">Contact ANDIZ <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="button secondary" href="#organization">View Organization Details <span aria-hidden="true">&#8599;</span></a>
+          </div>
         </div>
-        <aside class="notice" aria-labelledby="official-site">
-          <h2 id="official-site">Official Contact</h2>
-          <p>For business, product, and developer account inquiries, contact ANDIZ by email.</p>
-          <p><a href="mailto:admin@andiz.shop">admin@andiz.shop</a></p>
-          <p>Location: South Korea</p>
-        </aside>
-      </div>
-    </div>
 
-    <section id="about">
-      <div class="wrap">
-        <h2>About ANDIZ</h2>
-        <p>ANDIZ plans, designs, develops, and maintains software products. Our work includes mobile applications, web applications, internal tools, and supporting digital infrastructure.</p>
-        <p>We focus on reliable product delivery, straightforward user experiences, maintainable software, and long-term operation of digital services.</p>
+        <div class="visual-card" aria-label="ANDIZ operational profile">
+          <div class="profile">
+            <div class="profile-head">
+              <span>Operational profile</span>
+              <span>ANDIZ</span>
+            </div>
+            <div class="profile-grid">
+              <div class="profile-bar"></div>
+              <div class="profile-row">
+                <div class="profile-tile">Mobile apps</div>
+                <div class="profile-tile dark">Web services</div>
+              </div>
+              <div class="profile-row">
+                <div class="profile-tile">Digital tools</div>
+                <div class="profile-tile mid">Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="work">
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <div class="intro-card">
+          <div class="kicker mono">About</div>
+          <div class="chip mono">Delivery + Operation</div>
+          <h2 id="about-title">A small software organization built around delivery and operation.</h2>
+          <p>ANDIZ plans, develops, and operates mobile apps, web services, internal tools, and digital products. The work includes product release, maintenance, user support, and technical documentation.</p>
+        </div>
+
+        <div class="scope-grid" aria-label="Operating scope">
+          <article class="scope-card">
+            <span class="num-chip mono">01</span>
+            <h3>Plan</h3>
+            <p>Define product scope, support needs, and release requirements before build work starts.</p>
+          </article>
+          <article class="scope-card">
+            <span class="num-chip mono">02</span>
+            <h3>Build</h3>
+            <p>Implement mobile, web, and internal software with maintainable interfaces and documentation.</p>
+          </article>
+          <article class="scope-card">
+            <span class="num-chip mono">03</span>
+            <h3>Operate</h3>
+            <p>Maintain services through updates, issue handling, and operational support workflows.</p>
+          </article>
+          <article class="scope-card">
+            <span class="num-chip mono">04</span>
+            <h3>Document</h3>
+            <p>Keep support, privacy, and technical records visible for users and platform reviewers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="services" aria-labelledby="services-title">
       <div class="wrap">
-        <h2>What We Do</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Mobile Applications</h3>
+        <div class="section-head">
+          <div class="section-title">
+            <div class="kicker mono">Services</div>
+            <h2 id="services-title">Three service lines, one operating standard.</h2>
+          </div>
+          <div class="meta-chip mono">Mobile / Web / Operations</div>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="num-chip mono">01</span>
+            <h3>Mobile Application Development</h3>
             <p>Planning, implementation, testing, release preparation, and maintenance for mobile app products.</p>
           </article>
-          <article class="card">
-            <h3>Web Services</h3>
-            <p>Development and operation of websites, web applications, landing pages, and product support pages.</p>
+          <article class="service-card">
+            <span class="num-chip mono">02</span>
+            <h3>Web Service Development</h3>
+            <p>Websites, web applications, product support pages, and operational dashboards.</p>
           </article>
-          <article class="card">
-            <h3>Digital Product Support</h3>
-            <p>Product updates, technical documentation, customer support channels, and operational improvements.</p>
+          <article class="service-card">
+            <span class="num-chip mono">03</span>
+            <h3>Digital Product Operations</h3>
+            <p>Product updates, technical documentation, support workflows, and service improvements.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="support">
+    <section class="section soft" id="products" aria-labelledby="products-title">
       <div class="wrap">
-        <h2>Support</h2>
-        <p>For support requests, partnership inquiries, app-related questions, or account verification matters, please contact us at <a href="mailto:admin@andiz.shop">admin@andiz.shop</a>.</p>
-        <p>We review incoming messages and respond through the official ANDIZ email contact.</p>
+        <div class="product-head">
+          <div class="product-copy">
+            <div class="tag">Products / current work</div>
+            <h2 id="products-title">Mobile apps and web services operated by ANDIZ</h2>
+            <p>ANDIZ provides product support, maintenance updates, customer inquiry handling, and privacy guidance for digital services. Product pages and store listings provide additional product-specific information when available.</p>
+          </div>
+
+          <aside class="contact-panel" id="support" aria-labelledby="support-title">
+            <div class="status">Official channel</div>
+            <div class="contact-label" id="support-title">Official support</div>
+            <a class="contact-email" href="mailto:admin@andiz.shop">admin@andiz.shop</a>
+            <p>Business, product, app-related, and developer account verification matters can be sent here.</p>
+          </aside>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card">
+            <div class="status">Support scope</div>
+            <div class="work-label">Product support</div>
+            <h3>Support pages and product context</h3>
+            <p>Public-facing guidance for product questions, app matters, support scope, and user inquiries.</p>
+          </article>
+          <article class="work-card">
+            <div class="status">Maintenance</div>
+            <div class="work-label">Operations</div>
+            <h3>Maintenance and updates</h3>
+            <p>Release preparation, maintenance notes, technical documentation, and service improvements.</p>
+          </article>
+          <article class="work-card">
+            <div class="status">Verification</div>
+            <div class="work-label">Review</div>
+            <h3>Organization verification support</h3>
+            <p>A clear public contact route for platform review teams and external organizations checking ANDIZ details.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="privacy">
+    <section class="section" id="privacy" aria-labelledby="privacy-title">
       <div class="wrap">
-        <h2>Privacy and Data</h2>
-        <p>ANDIZ only requests personal information when it is needed to provide support, operate products, or respond to business inquiries. Information sent by email is used to review and answer the request.</p>
-        <p>If an ANDIZ product requires a separate privacy policy, that product will provide product-specific privacy information in its app, service page, or distribution listing.</p>
-      </div>
-    </section>
+        <div class="privacy-head">
+          <div class="privacy-copy">
+            <div class="tag">Privacy and organization</div>
+            <h2 id="privacy-title">Clear public details for users and reviewers.</h2>
+            <p>ANDIZ keeps this section focused on support, privacy, and organization information that users, partners, and platform review teams can verify quickly.</p>
+          </div>
 
-    <section id="organization">
-      <div class="wrap">
-        <h2>Organization Details</h2>
-        <dl class="info">
-          <dt>Legal entity name</dt>
-          <dd>ANDIZ</dd>
-          <dt>Business name</dt>
-          <dd>ANDIZ</dd>
-          <dt>Business type</dt>
-          <dd>Software and digital product business</dd>
-          <dt>Primary activities</dt>
-          <dd>Mobile app development, web service development, digital product operation, and software support</dd>
-          <dt>Headquarters</dt>
-          <dd>South Korea</dd>
-          <dt>Official website</dt>
-          <dd><a href="https://andiz.shop/">https://andiz.shop/</a></dd>
-          <dt>Contact</dt>
-          <dd><a href="mailto:admin@andiz.shop">admin@andiz.shop</a></dd>
-        </dl>
+          <aside class="contact-panel" aria-label="Official contact">
+            <div class="contact-label">Official channel</div>
+            <a class="contact-email" href="mailto:admin@andiz.shop">admin@andiz.shop</a>
+            <p>Business, product, app-related, and developer account verification matters are handled through this email.</p>
+          </aside>
+        </div>
+
+        <div class="privacy-grid">
+          <article class="privacy-card">
+            <span class="kicker mono">01</span>
+            <h3>Limited collection</h3>
+            <p>ANDIZ only requests personal information when needed to provide support, operate products, or respond to business inquiries.</p>
+          </article>
+          <article class="privacy-card">
+            <span class="kicker mono">02</span>
+            <h3>Product-specific notices</h3>
+            <p>Product-specific privacy information may be provided in each app, service page, or app store listing when additional context is required.</p>
+          </article>
+          <article class="privacy-card">
+            <span class="kicker mono">03</span>
+            <h3>Official response path</h3>
+            <p>Support requests are reviewed through the official mailbox so product, business, and verification matters remain traceable.</p>
+          </article>
+        </div>
+
+        <section class="org-card" id="organization" aria-labelledby="organization-title">
+          <div class="org-intro">
+            <div class="kicker">Organization details</div>
+            <h2 id="organization-title">Verifiable public profile</h2>
+            <p>ANDIZ publishes organization and contact information here so users, partners, and platform review teams can confirm the official website and support route.</p>
+          </div>
+
+          <dl class="org-table">
+            <div class="org-row">
+              <div class="org-cell">
+                <dt>Legal entity name</dt>
+                <dd><strong>ANDIZ</strong></dd>
+              </div>
+              <div class="org-cell">
+                <dt>Business name</dt>
+                <dd><strong>ANDIZ</strong></dd>
+              </div>
+            </div>
+            <div class="org-row">
+              <div class="org-cell">
+                <dt>Business type</dt>
+                <dd>Software and digital product business</dd>
+              </div>
+              <div class="org-cell">
+                <dt>Headquarters</dt>
+                <dd>South Korea</dd>
+              </div>
+            </div>
+            <div class="org-row">
+              <div class="org-cell">
+                <dt>Official website</dt>
+                <dd><a href="https://andiz.shop/">https://andiz.shop/</a></dd>
+              </div>
+              <div class="org-cell">
+                <dt>Contact</dt>
+                <dd><a href="mailto:admin@andiz.shop">admin@andiz.shop</a></dd>
+              </div>
+            </div>
+            <div class="org-row full">
+              <div class="org-cell">
+                <dt>Primary activities</dt>
+                <dd>Mobile app development, web service development, digital product operation, and software support</dd>
+              </div>
+            </div>
+          </dl>
+        </section>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">Copyright 2026 ANDIZ. All rights reserved.</div>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>ANDIZ</strong>
+        <p>Copyright 2026 ANDIZ. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-nav">
+          <a href="#about">About</a>
+          <a href="#support">Support</a>
+          <a href="#privacy">Privacy</a>
+          <a href="mailto:admin@andiz.shop">Contact</a>
+        </div>
+        <p>Official contact: <a href="mailto:admin@andiz.shop">admin@andiz.shop</a></p>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
